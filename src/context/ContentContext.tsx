@@ -89,15 +89,17 @@ export function ContentProvider({ children }: { children: ReactNode }) {
       return;
     }
 
-    if (saveTimeout.current) clearTimeout(saveTimeout.current);
-    saveTimeout.current = setTimeout(async () => {
-      const { error } = await supabase
-        .from('site_content')
-        .upsert({ id: SITE_CONTENT_ROW_ID, content, updated_at: new Date().toISOString() });
-      setSyncError(
-        error ? 'Değişiklikler sunucuya kaydedilemedi — sadece bu tarayıcıda saklandı.' : null
-      );
-    }, 700);
+   if (saveTimeout.current) clearTimeout(saveTimeout.current);
+saveTimeout.current = setTimeout(async () => {
+  if (!supabase) return; // <-- SADECE BU SATIRI EKLEDİK
+
+  const { error } = await supabase
+    .from('site_content')
+    .upsert({ id: SITE_CONTENT_ROW_ID, content, updated_at: new Date().toISOString() });
+  setSyncError(
+    error ? 'Değişiklikler sunucuya kaydedilemedi — sadece bu tarayıcıda saklandı.' : null
+  );
+}, 700);
 
     return () => {
       if (saveTimeout.current) clearTimeout(saveTimeout.current);
