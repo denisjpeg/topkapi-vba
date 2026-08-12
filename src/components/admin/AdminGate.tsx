@@ -57,7 +57,7 @@ export function AdminGate({ onSuccess }: { onSuccess: () => void }) {
               setPassword(e.target.value);
               setError(false);
             }}
-            className="input-field pl-9"
+            className="input-field pl-10" // pl-9 yerine pl-10 yapıldı
             placeholder="••••••••"
           />
         </div>
