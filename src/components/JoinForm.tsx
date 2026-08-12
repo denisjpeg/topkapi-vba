@@ -101,7 +101,7 @@ export function JoinForm() {
                   required
                   value={form.fullName}
                   onChange={update('fullName')}
-                  placeholder="Ayşe Yılmaz"
+                  placeholder="Deniz Altunay"
                   className="input-field"
                 />
               </Field>
@@ -110,7 +110,7 @@ export function JoinForm() {
                   required
                   value={form.studentId}
                   onChange={update('studentId')}
-                  placeholder="2024123456"
+                  placeholder="010101010101"
                   className="input-field"
                 />
               </Field>
@@ -119,7 +119,7 @@ export function JoinForm() {
                   required
                   value={form.department}
                   onChange={update('department')}
-                  placeholder="Bilgisayar Mühendisliği"
+                  placeholder="Veri Bilimi Ve Analitiği"
                   className="input-field"
                 />
               </Field>
@@ -129,7 +129,7 @@ export function JoinForm() {
                   type="email"
                   value={form.email}
                   onChange={update('email')}
-                  placeholder="ayse@topkapi.edu.tr"
+                  placeholder="denizaltunay@topkapi.edu.tr"
                   className="input-field"
                 />
               </Field>
